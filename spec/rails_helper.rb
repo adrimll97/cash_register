@@ -12,6 +12,7 @@ SimpleCov.start 'rails' do
   add_filter 'app/jobs'
   add_filter 'app/controllers/application_controller.rb'
   add_filter 'app/models/application_record.rb'
+  add_filter 'app/helpers/application_helper.rb'
 end
 
 require 'spec_helper'
