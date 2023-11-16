@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_15_161731) do
+ActiveRecord::Schema.define(version: 2023_11_16_164037) do
+
+  create_table "basket_products", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_basket_products_on_product_id"
+  end
 
   create_table "products", force: :cascade do |t|
     t.string "code"
@@ -21,4 +29,5 @@ ActiveRecord::Schema.define(version: 2023_11_15_161731) do
     t.index ["code"], name: "index_products_on_code", unique: true
   end
 
+  add_foreign_key "basket_products", "products"
 end
