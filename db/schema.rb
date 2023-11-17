@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_11_16_164037) do
+ActiveRecord::Schema.define(version: 2023_11_16_194030) do
 
   create_table "basket_products", force: :cascade do |t|
     t.integer "product_id", null: false
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(version: 2023_11_16_164037) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_basket_products_on_product_id"
+  end
+
+  create_table "product_promotions", force: :cascade do |t|
+    t.integer "product_id", null: false
+    t.string "promotionable_type", null: false
+    t.integer "promotionable_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_product_promotions_on_product_id"
+    t.index ["promotionable_type", "promotionable_id"], name: "index_product_promotions_on_promotionable"
   end
 
   create_table "products", force: :cascade do |t|
@@ -30,4 +40,5 @@ ActiveRecord::Schema.define(version: 2023_11_16_164037) do
   end
 
   add_foreign_key "basket_products", "products"
+  add_foreign_key "product_promotions", "products"
 end
