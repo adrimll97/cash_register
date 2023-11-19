@@ -2,7 +2,7 @@
 
 class Product < ApplicationRecord
   has_one :basket_product
-  has_many :product_promotions
+  has_one :product_promotion
 
   validates :code, :name, :price, presence: true
   validates :code, uniqueness: true

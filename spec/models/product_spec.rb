@@ -21,6 +21,6 @@ RSpec.describe Product, type: :model do
 
   describe 'Associations' do
     it { is_expected.to have_one(:basket_product) }
-    it { is_expected.to have_many(:product_promotions) }
+    it { is_expected.to have_one(:product_promotion) }
   end
 end
