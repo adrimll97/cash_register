@@ -54,6 +54,7 @@ group :test do
   gem 'capybara', '>= 3.26'
   gem 'factory_bot_rails'
   gem 'faker'
+  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 6.0.0'
   gem 'selenium-webdriver', '>= 4.0.0.rc1'
   gem 'shoulda-matchers', '~> 5.0'
