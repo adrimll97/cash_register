@@ -2,7 +2,7 @@
 
 FactoryBot.define do
   factory :product do
-    code { Faker::Lorem.word }
+    sequence(:code) { |n| "#{Faker::Lorem.word}#{n}" }
     name { Faker::Lorem.word }
     price { Faker::Number.decimal(l_digits: 2) }
   end

@@ -3,6 +3,13 @@
 FactoryBot.define do
   factory :product_promotion do
     product { create(:product) }
-    promotionable { nil }
+
+    trait :free do
+      promotionable { create(:free_promotion) }
+    end
+
+    trait :price do
+      promotionable { create(:price_promotion) }
+    end
   end
 end

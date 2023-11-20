@@ -1,0 +1,22 @@
+h1 Cash Register
+
+= form_tag baskets_add_product_path, method: :post do
+  = select_tag 'product_id', options_for_select(@products.map { |product| [product.name, product.id] })
+  = submit_tag 'Add to basket'
+
+- if @basket_products.present?
+  ul
+    - @basket_products.each do |basket_product|
+      li
+        div style='display: inline-flex'
+          = "#{basket_product.product.code}| #{basket_product.product.name}: Quantity: #{basket_product.quantity}"
+          = button_to 'Remove from basket', baskets_remove_product_path(basket_product_id: basket_product.id), method: :post, style: 'margin-left: 10px;'
+- else
+  p Add some products to your basket
+
+= button_to 'Calculate final price', baskets_calculate_price_path, method: :post
+div
+  p Final price:
+- if flash.present?
+  div
+    = content_tag :p, flash.notice if flash.notice.present?

@@ -3,6 +3,6 @@
 FactoryBot.define do
   factory :price_promotion do
     min_product_quantity { Faker::Number.number }
-    product_price { Faker::Number.decimal(l_digits: 2) }
+    product_discount { Faker::Number.between(from: 0.0, to: 1.0).to_s }
   end
 end
